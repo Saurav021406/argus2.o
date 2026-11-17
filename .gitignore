@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+datasets/
+checkpoints/
+runs/
+runs_*/
+*.log
+.env
+.env.*
+!.env.example
+camera-screen.png

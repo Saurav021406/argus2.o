@@ -1,0 +1,28 @@
+{
+  "servers": {
+    "argus": {
+      "type": "stdio",
+      "command": "D:\\argus2.o\\.venv\\Scripts\\python.exe",
+      "args": [
+        "D:\\argus2.o\\argus_server.py"
+      ],
+      "cwd": "D:\\argus2.o",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    "argus-sqlserver": {
+      "type": "stdio",
+      "command": "D:\\argus2.o\\.venv\\Scripts\\python.exe",
+      "args": [
+        "D:\\argus2.o\\argus_sqlserver.py"
+      ],
+      "cwd": "D:\\argus2.o",
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "ARGUS_SQLSERVER_INSTANCE": ".\\SQLEXPRESS",
+        "ARGUS_SQLSERVER_DATABASE": "MyDatabase"
+      }
+    }
+  }
+}

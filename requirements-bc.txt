@@ -1,0 +1,3 @@
+# on top of requirements-core.txt (torch is already installed in your venv)
+transformers>=4.40
+numpy
