@@ -1,11 +1,39 @@
-Argus learned-agent lab
-Welcome! This guide walks you through the demonstration-driven vision-and-action pipeline in argus/ — from recording your first desktop demonstration to training and evaluating a policy.
-
-Know what this is: the current planner supports a bounded set of tasks: opening Notepad, Calculator, or Paint; supported calculator button sequences; and drawing a line or a three-stroke zigzag in Paint. It is an experimental learned-agent workflow, not a general-purpose autonomous desktop agent.
+<p align="center">
+  <img src="assets/argus-hero.png" alt="Argus 2.0 visual identity" width="100%">
+</p><h1 align="center">ARGUS · LEARNED AGENT LAB</h1><p align="center">
+  <strong>Teach a bounded desktop agent through demonstrations.</strong><br>
+  Record · Inspect · Train · Evaluate
+</p><p align="center">
+  <img src="https://img.shields.io/badge/Platform-Windows-76B900?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-76B900?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/Framework-PyTorch-76B900?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/Status-Experimental-76B900?style=for-the-badge" alt="Experimental">
+</p><p align="center">
+  <a href="../README.md">← Main project</a> ·
+  <a href="docs/MCP_TERMINAL.md">Terminal & MCP guide</a> ·
+  <a href="#quick-start">Quick start</a>
+</p>[!IMPORTANT]
+The current planner supports a bounded set of tasks: opening Notepad, Calculator, or Paint; supported calculator button sequences; and drawing a line or a three-stroke zigzag in Paint. This is an experimental learned-agent workflow, not a general-purpose autonomous desktop agent.
 
 This pipeline is separate from the Desktop, MySQL, and ML-monitoring MCP servers in argus_server.py.
 
-Start here: what are you trying to do?
+Choose your destination
+<img width="28" src="https://img.icons8.com/fluency/48/rocket.png" alt=""> Get started	Explore the pipeline	Run an evaluation
+Set up your environment and record your first demo.	Understand how recordings become a policy.	Dry-run a checkpoint and inspect results.
+Jump to Quick Start ↓	View workflow ↓	Evaluate ↓
+
+
+<details>
+<summary><strong>⌄ Show all guide sections</strong></summary>- Quick Start
+- The learning loop
+- Record demonstrations
+- Validate and inspect data
+- Cache visual features
+- Train behavioral cloning
+- Run the agent
+- Evaluate and iterate
+- Limitations and safety
+</details>Quick Start · choose your workflow
 <details open>
 <summary><strong>🧰 I am setting this up for the first time</strong></summary>1. Use Windows and Python 3.10 or newer.
 2. Create and activate the project environment.
@@ -59,7 +87,13 @@ python -m argus.core explain --help
 python -m argus.core compare --help
 python -m argus.core inkcheck --help
 DAgger collects learner-visited states and expert-labelled actions for later training rounds. Review prompt coverage and live execution settings before running it.
-</details>The pipeline, at a glance
+</details>The learning loop
+<p align="center">
+  <img src="assets/argus-agent-workflow.png" alt="Argus learned-agent workflow" width="100%">
+</p><details>
+<summary><strong>View the system architecture diagram</strong></summary><p align="center">
+  <img src="assets/argus-architecture.png" alt="Argus system architecture" width="100%">
+</p></details>The pipeline, at a glance
 Human demonstration
         │
         ▼
@@ -78,7 +112,12 @@ PyTorch behavioral cloning
 Checkpoint ──► dry-run ──► evaluation
         │
         └──────── optional DAgger iteration
-1. Environment setup
+<p align="center">
+  <img src="https://img.shields.io/badge/01-Record-76B900?style=flat-square" alt="Record">
+  <img src="https://img.shields.io/badge/02-Audit-76B900?style=flat-square" alt="Audit">
+  <img src="https://img.shields.io/badge/03-Train-76B900?style=flat-square" alt="Train">
+  <img src="https://img.shields.io/badge/04-Evaluate-76B900?style=flat-square" alt="Evaluate">
+</p>1. Environment setup
 Use Windows and Python 3.10 or newer. Run commands from the repository root:
 py -3.10 -m venv .venv
 .\.venv\Scripts\Activate.ps1
